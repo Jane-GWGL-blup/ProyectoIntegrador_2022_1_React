@@ -6,11 +6,6 @@ import NavbarPerfil from '../Navbar/NavbarPerfil'
 
 class PerfilCIPage extends Component {
 
-  /*
-      const items=JSON.parse(localStorage.getItem('user-info'));
-    console.log("Usuario ID: "+items.id)
-    await axios.get('http://localhost:8080/users/'+items.id+'/cursoUser/')*/
-
     consulta = async () => { 
         const items=JSON.parse(localStorage.getItem('user-info'));
        console.log("Usuario ID: "+items.id)
@@ -160,13 +155,15 @@ class PerfilCIPage extends Component {
     event.preventDefault();
 }
 
-eliminar(index){
+eliminar(id,index){
   const items=JSON.parse(localStorage.getItem('user-info'));
-  let rpta = window.confirm("Desea eliminar?");
+  let rpta = window.confirm("¿Desea quitar curso inscrito?");
   if(rpta){
-    console.log('http://localhost:8080/users/'+items.id+'/cursoUser/'+index)
-    axios.delete('http://localhost:8080/users/'+items.id+'/cursoUser/'+index)
-    
+    console.log(id)
+    axios.delete(id);
+    //Permite borrar del estado sin necesidad de recargar la pagina
+    this.state.cursosDetailUnidoNombreCurso.splice(index,1);
+    this.forceUpdate();
   }
 }
 
@@ -207,7 +204,7 @@ render() {
 
                                           </div>
                                           <div class="col">
-                                              <button class="btn btn-danger" onClick={()=>this.eliminar(index1)}>Eliminar Curso</button>
+                                              <button class="btn btn-danger" onClick={()=>this.eliminar(cursosDetailUnidoNombreCurso.cursoDetail['_links'].cursoUser.href,index1)}>Eliminar Curso</button>
                                           </div>
                                         </div>
                                     </div>

@@ -24,14 +24,15 @@ export default function LandingPage() {
                 <a href="#">Servicios</a>
                 <a href="#">Contacto</a> 
             </nav>
-                <h1 className="main-title text-center">Potencia tus conocimientos al menos un 200%</h1>
-                <p className="main-para text-center">join us now and don't waste time</p>
+                <h1 className="main-title text-center">My Virtual Academy</h1>
+                <h3 className="sub-title text-center">Potencia tus conocimientos al 100%</h3>
+                <p className="main-para text-center">¡Registrate ahora y no pierdas el tiempo!</p>
                 <div className="buttons text-center">
                     <Link to="/login">
-                        <button className="primary-button">log in</button>
+                        <button className="primary-button">Iniciar Sesión</button>
                     </Link>
                     <Link to="/register">
-                        <button className="primary-button" id="reg_btn"><span>register </span></button>
+                        <button className="primary-button" id="reg_btn"><span>Registrarse</span></button>
                     </Link>
                 </div>
             </header>

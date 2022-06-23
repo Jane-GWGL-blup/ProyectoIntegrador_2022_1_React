@@ -42,6 +42,14 @@ body {
   text-transform: uppercase
 }
 
+.sub-title {
+  color: white;
+  padding-top: 8rem;
+  font-size: 3rem;
+  font-family: cursive;
+  text-transform: uppercase
+}
+
 .main-para {
   font-size: 2.5rem;
   text-Transform: capitalize
