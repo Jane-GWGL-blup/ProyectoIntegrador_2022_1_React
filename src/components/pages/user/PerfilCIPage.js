@@ -160,12 +160,17 @@ class PerfilCIPage extends Component {
     event.preventDefault();
 }
 
-eliminar(index){
+eliminar(id,index){
   const items=JSON.parse(localStorage.getItem('user-info'));
   let rpta = window.confirm("Desea eliminar?");
   if(rpta){
-    console.log('http://localhost:8080/users/'+items.id+'/cursoUser/'+index)
-    axios.delete('http://localhost:8080/users/'+items.id+'/cursoUser/'+index)
+    //console.log('http://localhost:8080/users/'+items.id+'/cursoUser/'+index)
+    //axios.delete('http://localhost:8080/users/'+items.id+'/cursoUser/'+index)
+    console.log(id)
+    axios.delete(id);
+    //Permite borrar del estado sin necesidad de recargar la pagina
+    this.state.cursosDetailUnidoNombreCurso.splice(index,1);
+    this.forceUpdate();
     
   }
 }
@@ -207,7 +212,7 @@ render() {
 
                                           </div>
                                           <div class="col">
-                                              <button class="btn btn-danger" onClick={()=>this.eliminar(index1)}>Eliminar Curso</button>
+                                              <button class="btn btn-danger" onClick={()=>this.eliminar(cursosDetailUnidoNombreCurso.cursoDetail['_links'].cursoUser.href,index1)}>Eliminar Curso</button>
                                           </div>
                                         </div>
                                     </div>
