@@ -45,7 +45,7 @@ console.log(items.id)
                             {cursos.map( curso=>( 
                                     <div class="col-4" key={curso.id}>
                                     <div class="card mx_auto">
-                                            <img src="https://i.ytimg.com/vi/Nvm7JzhUpc4/mqdefault.jpg" class="card-img-top" alt="..."/>
+                                            <img src={curso.imagen} class="card-img-top" alt="..."/>
                                             <div class="card-body" >
                                                 <h5 class="card-title">{curso.name}</h5>
                                                 <p class="card-text">S/.{curso.precio}</p><br></br>
