@@ -114,12 +114,29 @@ console.log(items.id)
         }
 
        async function cursoi(urlCurso){ 
-     
-          let url1 = urlCurso
-          console.log(url1)
-          let url2="http://localhost:8080/users/"+items.id
-          console.log(url2)
-          let item={url1,url2};
+
+        let result2 = await fetch("http://127.0.0.1:8080/users/"+items.id+"/cursoUser")
+        const data2 = await result2.json();
+        console.log(data2)
+        
+        var listaNombresCursos=[]
+        for(var item of data2._embedded.cursoUsers ){
+            let result3 = await fetch(item['_links'].curso.href)
+            const data3 = await result3.json();
+            console.log(data3._links.curso.href)
+            listaNombresCursos.push(data3._links.curso.href)
+        }
+        console.log(urlCurso)
+        console.log(listaNombresCursos)
+
+        if(listaNombresCursos.includes(urlCurso)){
+            window.confirm("Ya se encuentra inscrito en el curso");
+        }else{
+            let url1 = urlCurso
+            console.log(url1)
+            let url2="http://localhost:8080/users/"+items.id
+            console.log(url2)
+            let item={url1,url2};
             let result = await fetch("http://localhost:8080/cursoUsers",{
                 
                 method:'POST',
@@ -128,12 +145,35 @@ console.log(items.id)
                     "Accept":"application/json" 
                 },
                 body:JSON.stringify(
-                  {"curso":url1,
-                   "user": url2}
+                    {"curso":url1,
+                    "user": url2}
                 )
             });
 
-            historyC.push("/cursosInscritos")
+        historyC.push("/cursosInscritos")
+        }
+        
+/*
+        let url1 = urlCurso
+        console.log(url1)
+        let url2="http://localhost:8080/users/"+items.id
+        console.log(url2)
+        let item={url1,url2};
+        let result = await fetch("http://localhost:8080/cursoUsers",{
+            
+            method:'POST',
+            headers:{
+                "Content-Type":"application/json",
+                "Accept":"application/json" 
+            },
+            body:JSON.stringify(
+                {"curso":url1,
+                "user": url2}
+            )
+        });
+
+        historyC.push("/cursosInscritos")
+*/
         }
 
         async function curso_i(){
