@@ -35,7 +35,8 @@ class PerfilCIPage extends Component {
               
                 arrayUnido.push({cursoDetail: array[x],
                   cursoNombre: JSON.parse(JSON.stringify(res.data.name)),
-                  cursoDescription: JSON.parse(JSON.stringify(res.data.description))
+                  cursoDescription: JSON.parse(JSON.stringify(res.data.description)),
+                  cursoImage: JSON.parse(JSON.stringify(res.data.imagen))
                 })
               
               x++;
@@ -173,9 +174,9 @@ render() {
             <Layout>
             <div className='fondo3'>
             <header className='header'>
-                <div>
+                
                     <img className="imgperfil" src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'/>
-                </div>
+                
            </header>
            </div>
            
@@ -193,11 +194,11 @@ render() {
                         <><div class="row">
                             <div class="col-6">
                                 <div class="card">
-                                    <img src="https://previews.123rf.com/images/gmast3r/gmast3r1608/gmast3r160800354/60633414-creativa-oficina-de-cooperaci%C3%B3n-de-trabajo-que-se-sientan-centro-de-recepci%C3%B3n-presentaci%C3%B3n-de-trabaj.jpg" class="card-img-top" alt="..." />
+                                    <img src={cursosDetailUnidoNombreCurso.cursoImage} class="card-img-top" alt="..." />
                                     <div class="card-body">
                                         <h5 class="card-title">{cursosDetailUnidoNombreCurso.cursoNombre}</h5>
                                         <strong><p>{cursosDetailUnidoNombreCurso.cursoDescription}</p></strong>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <p class="card-text">El siguiente curso tiene como objetivo a lo largo de su transcurso y desarrollo hacer entender, comprender, poner en practica los conocimientos que sean transmitidos. </p>
                                         <div class="row">
                                           <div class="col">
                                               <button class="btn btn-primary">Click Aquí</button>

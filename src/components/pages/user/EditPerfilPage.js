@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom'
+import React, { useState } from 'react';
 import Layout from '../layout/Layout'
 import NavbarPerfil from '../Navbar/NavbarPerfil'
 import { useFormik } from 'formik';
@@ -15,23 +14,12 @@ const validationSchema = yup.object({
 })
 
 export default function EditPerfilPage() {
-  const history = useHistory();
+ 
   const items=JSON.parse(localStorage.getItem('user-info'));
   const [error, setError]=useState(null);
 
   const [user,setUser]=useState([]);
 
-  //Funciona
-  /*
-      useEffect(()=>{
-        let url="http://127.0.0.1:8080/users/"+items.id
-        fetch(url)
-          .then((res)=>res.json())
-          .then((json)=>{
-            console.log(json);
-            setUser((json));
-          });
-      },[]);*/
 
   const onSubmit = async (values) => {
     setError(null);

@@ -38,16 +38,16 @@ export default function App() {
 
 const Footer = () => {
     return (
-        <p className="text-center" style={ FooterStyle }>Copyright 2022 <a href="https://izemspot.netlify.com" target="_blank" rel="noopener noreferrer"></a></p>
+        <p className="text-center" style={ FooterStyle }>Copyright 2022 - Cáceres, Medina, Sierra, Turin</p>
     )
 }
 
 const FooterStyle = {
     background: "#222",
-    fontSize: ".8rem",
+    fontSize: "100%",
     color: "#fff",
     bottom: 0,
-    padding: "1rem",
+    padding: "2rem",
     margin: 0,
     width: "100%",
     opacity: ".8"

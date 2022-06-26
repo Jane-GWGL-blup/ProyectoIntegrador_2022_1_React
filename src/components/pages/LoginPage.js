@@ -6,7 +6,7 @@ import * as yup from 'yup';
 import axios from 'axios';
 
 import '../../App.css'
-import '../../Login.css'
+import '../../Estilos.css'
 
 const validationSchema = yup.object({
     username: yup.string().required(),

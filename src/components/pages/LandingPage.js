@@ -11,8 +11,11 @@ import Img5 from '../../assets/images/img5.jpg'
 import Img6 from '../../assets/images/img6.png'
 import Img7 from '../../assets/images/img7.jpg'
 import Icon2 from '../../assets/images/icono2.jpg'
-import user from '../../assets/images/user.png'
+import userGirl from '../../assets/images/user1.png'
+import userBoy from '../../assets/images/user2.png'
 import remoto from '../../assets/images/remoto.png'
+import servicio2 from '../../assets/images/servicio2.jpg'
+import servicio3 from '../../assets/images/servicio3.jpg'
 export default function LandingPage() {
     return (
         <div>  
@@ -44,7 +47,7 @@ export default function LandingPage() {
                         <div class="contenido-textos">
                             <h3><span>1</span>Los mejores cursos web</h3>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas dolor placeat voluptatem voluptatum veritatis explicabo laborum fugit dolore voluptate incidunt illum totam rem dolorum aperiam repellat, fuga dolores tenetur commodi.</p>
-                            <h3><span>2</span>Los mejores cursos web</h3>
+                            <h3><span>2</span>Tu mejor opción</h3>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas dolor placeat voluptatem voluptatum veritatis explicabo laborum fugit dolore voluptate incidunt illum totam rem dolorum aperiam repellat, fuga dolores tenetur commodi.</p>
                         </div>
                     </div>
@@ -118,18 +121,18 @@ export default function LandingPage() {
                     <h2 class="titulo">Que dicen nuestros alumnos </h2>
                     <div class="cards">
                         <div class="card">
-                            <img src={user} alt=""/>
+                            <img src={userGirl} alt=""/>
                             <div class="contenido-texto-card">
-                                <h4>Name</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit id ullam quos quidem. In doloribus minima voluptatibus soluta architecto nemo quam, iste molestias vero temporibus, facere commodi ipsum accusamus officia!</p>
+                                <h4>Aracely Sanchez Morales</h4>
+                                <p>"Mi experiencia con los curso intermedios, principalmente con Python y PHP, fue realmente buena porque ... In doloribus minima voluptatibus soluta architecto nemo quam, iste molestias vero temporibus, facere commodi ipsum accusamus officia! "</p>
                             </div>
                         </div>
                         &nbsp;
                         <div class="card">
-                            <img src={user} alt=""/>
+                            <img src={userBoy} alt=""/>
                             <div class="contenido-texto-card">
-                                <h4>Name</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit id ullam quos quidem. In doloribus minima voluptatibus soluta architecto nemo quam, iste molestias vero temporibus, facere commodi ipsum accusamus officia!</p>
+                                <h4>Luis Cesar Rosales Rucabado</h4>
+                                <p>"Les cuento jovenes, antes de entrar a la academia me era dificil entender varios temas o leguanjes de programación, pero gracias a ésta academia puedo asegurar que podrán entenderán varios temas de manera clara y además actualizada. Encantado con su servicio...acere commodi ipsum accusamus officia!" </p>
                             </div>
                         </div>
                     </div>
@@ -141,17 +144,17 @@ export default function LandingPage() {
                         <div class="servicio-cont">
                             <div class="servicio-ind">
                                 <img src={remoto} alt=""/>
-                                <h3>Name</h3>
+                                <h3>Conozca mas de nuestras modalidades</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, expedita!</p>
                             </div>
                             <div class="servicio-ind">
-                                <img src={remoto} alt=""/>
-                                <h3>Name</h3>
+                                <img src={servicio2} alt=""/>
+                                <h3>Tour Virtual</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, expedita!</p>
                             </div>
                             <div class="servicio-ind">
-                                <img src={remoto} alt=""/>
-                                <h3>Name</h3>
+                                <img src={servicio3} alt=""/>
+                                <h3>Política de Privacidad</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, expedita!</p>
                             </div>
                         </div>

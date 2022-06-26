@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
-import { Link } from 'react-router-dom'
 import Layout from '../layout/Layout';
 import remoto from '../../../assets/images/remoto.png';
 
@@ -39,30 +38,30 @@ console.log(items.id)
                       <h4>Cargando ...</h4>
                     ):(
                       <section>
-                   <div class="container">
-                        <div className='scroll_horizontal'>
-                            <div class="row" >
-                            {cursos.map( curso=>( 
-                                    <div class="col-4" key={curso.id}>
-                                    <div class="card mx_auto">
-                                            <img src="https://i.ytimg.com/vi/Nvm7JzhUpc4/mqdefault.jpg" class="card-img-top" alt="..."/>
-                                            <div class="card-body" >
-                                                <h5 class="card-title">{curso.name}</h5>
-                                                <p class="card-text">S/.{curso.precio}</p><br></br>
-                                                <p class="card-text">{curso.description}</p>
-                                                <button 
-                                                //onClick={cursoi}
-                                                onClick={()=>cursoi(curso._links.curso.href)}
-                                                id="sub_btn" class="btn btn-primary" 
-                                                type="submit">Empezar  Curso</button>
+                                    <div class="container ">
+                                        <div >
+                                            <div class="row">
+                                                {cursos.map(curso => (
+                                                    <div class="col-4" key={curso.id}>
+                                                        <div class="card mx_auto cardClass">
+                                                            <img src={curso.imagen} class="card-img-top" alt="..." />
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">{curso.name}</h5>
+                                                                <p class="card-text">S/.{curso.precio}</p><br></br>
+                                                                <p class="card-text">{curso.description}</p>
+                                                                <button
+                                                                    //onClick={cursoi}
+                                                                    onClick={() => cursoi(curso._links.curso.href)}
+                                                                    id="sub_btn" class="btn btn-primary"
+                                                                    type="submit">Empezar  Curso</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))}
                                             </div>
                                         </div>
                                     </div>
-                            ))}
-                            </div>
-                      </div>
-                    </div> 
-                    </section>
+                                </section>
                     )}
                     <hr className='line'/>
                     <section class="about-services">
@@ -92,18 +91,6 @@ console.log(items.id)
                 </Layout>
             </div>)
           
-/*
-                    <p>
-                        <button 
-                        onClick={curso_i}
-                        id="sub_btn" type="submit">Curso</button>
-                    </p>
-                    <p>
-                    <button 
-                        onClick={curso}
-                        id="sub_btn" type="submit">Curso listado consola</button>
-                    </p>
- */
       async function curso(){
             let result = await fetch("http://localhost:8080/cursoes");
             const data = await result.json();
@@ -114,12 +101,29 @@ console.log(items.id)
         }
 
        async function cursoi(urlCurso){ 
-     
-          let url1 = urlCurso
-          console.log(url1)
-          let url2="http://localhost:8080/users/"+items.id
-          console.log(url2)
-          let item={url1,url2};
+
+        let result2 = await fetch("http://127.0.0.1:8080/users/"+items.id+"/cursoUser")
+        const data2 = await result2.json();
+        console.log(data2)
+        
+        var listaNombresCursos=[]
+        for(var item of data2._embedded.cursoUsers ){
+            let result3 = await fetch(item['_links'].curso.href)
+            const data3 = await result3.json();
+            console.log(data3._links.curso.href)
+            listaNombresCursos.push(data3._links.curso.href)
+        }
+        console.log(urlCurso)
+        console.log(listaNombresCursos)
+
+        if(listaNombresCursos.includes(urlCurso)){
+            window.confirm("Ya se encuentra inscrito en el curso");
+        }else{
+            let url1 = urlCurso
+            console.log(url1)
+            let url2="http://localhost:8080/users/"+items.id
+            console.log(url2)
+            //let item={url1,url2};
             let result = await fetch("http://localhost:8080/cursoUsers",{
                 
                 method:'POST',
@@ -128,14 +132,17 @@ console.log(items.id)
                     "Accept":"application/json" 
                 },
                 body:JSON.stringify(
-                  {"curso":url1,
-                   "user": url2}
+                    {"curso":url1,
+                    "user": url2}
                 )
             });
 
-            historyC.push("/cursosInscritos")
+        historyC.push("/cursosInscritos")
         }
+        
 
+        }
+/*
         async function curso_i(){
           let result = await fetch("http://127.0.0.1:8080/users/1/cursoUser")
 
@@ -149,10 +156,6 @@ console.log(items.id)
           let result1 = await fetch(uri)
           const data1 = await result1.json();
           console.log(data1.name)
-          //localStorage.setItem("user-info",JSON.stringify(data))
-         //localStorage.setItem("cursosi-info",JSON.stringify(data))
-          /*
-          historyC.push("/home")*/
-      }
+      }*/
 
 }

@@ -30,3 +30,7 @@ body{
     background: linear-gradient(90deg, rgba(222,231,222,1) 0%, rgba(253,254,253,0.6283555658591562) 50%, rgba(222,231,222,1) 100%);
     margin-top: 0;
 }
+
+.cardClass{
+    margin-bottom: 10%;
+}

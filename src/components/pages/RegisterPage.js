@@ -68,9 +68,9 @@ export default function SignUpPage() {
 
     return (
         <div className="text-center m-5-auto fondo">
+            {!error && <p className='formSuccess'>{success ? success : ""}</p> ||
+            !success && <p className='formError'>{error ? error : ""}</p>}
             <h5 class="text-white">Create tu cuenta personal</h5>
-            {!error && <p className='formSuccess'>{success ? success : ""}</p>}
-            {!success && <p className='formError'>{error ? error : ""}</p>}
             <form onSubmit={formik.handleSubmit}>
                  <p>
                     <p className='fieldValidate'>{formik.touched.username && formik.errors.username ? formik.errors.username:""}</p>

@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Layout from '../layout/Layout'
 import NavbarPerfil from '../Navbar/NavbarPerfil'
 
 export default function PerfilPage(){
     const items=JSON.parse(localStorage.getItem('user-info'));
-    const historyD = useHistory();
+    
     const [user,setUser]=useState([]);
 
     //Funciona
