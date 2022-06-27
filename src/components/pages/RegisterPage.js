@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import axios from 'axios';
-
+import logo from '../../assets/images/logo6.png'
 import '../../App.css'
 
 
@@ -72,6 +72,7 @@ export default function SignUpPage() {
             !success && <p className='formError'>{error ? error : ""}</p>}
             <h5 class="text-white">Create tu cuenta personal</h5>
             <form onSubmit={formik.handleSubmit}>
+               
                  <p>
                     <p className='fieldValidate'>{formik.touched.username && formik.errors.username ? formik.errors.username:""}</p>
                     <div>

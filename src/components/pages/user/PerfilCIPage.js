@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Layout from '../layout/Layout'
 import NavbarPerfil from '../Navbar/NavbarPerfil'
-
+import perfil from '../../../assets/images/perfil.png'
 
 class PerfilCIPage extends Component {
 
@@ -175,7 +175,7 @@ render() {
             <div className='fondo3'>
             <header className='header'>
                 
-                    <img className="imgperfil" src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'/>
+                    <img className="imgperfil" src={perfil}/>
                 
            </header>
            </div>

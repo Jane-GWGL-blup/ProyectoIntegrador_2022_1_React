@@ -29,8 +29,50 @@ body{
     background: rgb(222,231,222);
     background: linear-gradient(90deg, rgba(222,231,222,1) 0%, rgba(253,254,253,0.6283555658591562) 50%, rgba(222,231,222,1) 100%);
     margin-top: 0;
+    margin-right: 1%;
 }
 
 .cardClass{
     margin-bottom: 10%;
 }
+/*
+.navLanding{
+    padding-top: 4%;
+    padding-bottom: 2%;
+    
+    background: rgb(116, 116, 116);
+    background: linear-gradient(90deg, rgba(116, 116, 116,0.7) 0%, rgba(253,254,253,0.6283555658591562) 50%, rgba(116, 116, 116,0.7) 100%);
+}*/
+
+.logo{
+    border-radius: 6%;
+    padding-top: 1%;
+    padding-left: 5%;
+    width: 20%;
+    height: 80%;
+    float: right;
+
+}
+
+.logoDefault{
+    width: 20%;
+    height: 90%;
+    float:left;
+}
+
+.fondoLogo{
+    width: 400px; 
+    height: 60px; 
+    background: url(../src/assets/images/logo5.png);
+    background-attachment: fixed;
+    background-position: center ;
+    background-size: cover;
+     -webkit-transform: skew(-20deg); 
+     -moz-transform: skew(-20deg); 
+     -o-transform: skew(-20deg); 
+     
+}
+code{
+    font-family: 'Fascinate', cursive;
+    font-size: 3.5rem;
+    color: brown;}

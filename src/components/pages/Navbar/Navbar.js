@@ -1,11 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import logo from '../../../assets/images/logo6.png'
 const Navbar = () => {
     return (
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
+                        <li>
+                        <img src={logo} className='logoDefault'/>
+                        </li>
                         <Link to="/home">
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import '../../App.css'
+import logo from '../../assets/images/logo6.png'
 import ImgFondo from '../../assets/images/fondo.png'
 import Img1 from '../../assets/images/img1.jpg'
 import Img2 from '../../assets/images/img2.jpg'
@@ -20,14 +21,18 @@ export default function LandingPage() {
     return (
         <div>  
             <header className='headerlanding' style={ HeaderStyle }>
-            <nav>
+            
+            <div className='fondoLogo'><img src={logo} className='logo'/></div>
+            
+            <nav className='navLanding'>
+                
                 <a href="/">Inicio</a>
                 <a href="#">Acerca de</a>
                 <a href="#">Portafolio</a>
                 <a href="#">Servicios</a>
                 <a href="#">Contacto</a> 
             </nav>
-                <h1 className="main-title text-center">My Virtual Academy</h1>
+                
                 <h3 className="sub-title text-center">Potencia tus conocimientos al 100%</h3>
                 <p className="main-para text-center">¡Registrate ahora y no pierdas el tiempo!</p>
                 <div className="buttons text-center">

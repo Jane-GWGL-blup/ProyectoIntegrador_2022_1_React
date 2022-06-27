@@ -4,7 +4,7 @@ import NavbarPerfil from '../Navbar/NavbarPerfil'
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import axios from 'axios';
-
+import perfil from '../../../assets/images/perfil.png'
 const validationSchema = yup.object({
   username: yup.string().min(3,"Campo Username no puede estar vacío").required("¡Por favor ingresa tu username!"),
   email: yup.string().email("Campo Email no puede estar vacío").required("¡Por favor ingresa tu email!"),
@@ -59,7 +59,7 @@ export default function EditPerfilPage() {
             <div className='fondo3'>
         <header className='header'>
             <div >
-                <img className="imgperfil" src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'/>
+                <img className="imgperfil" src={perfil}/>
             </div>
        </header></div>
        <NavbarPerfil>

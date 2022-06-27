@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import Layout from '../layout/Layout'
 import NavbarPerfil from '../Navbar/NavbarPerfil'
-
+import perfil from '../../../assets/images/perfil.png'
 export default function PerfilPage(){
     const items=JSON.parse(localStorage.getItem('user-info'));
     
@@ -43,7 +43,7 @@ export default function PerfilPage(){
                 <div className='fondo3'>
             <header className='header'>
                 <div >
-                    <img className="imgperfil" src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'/>
+                    <img className="imgperfil" src={perfil}/>
                 </div>
            </header></div>
            <NavbarPerfil>
