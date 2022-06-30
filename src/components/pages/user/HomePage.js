@@ -8,8 +8,8 @@ import servicio3 from '../../../assets/images/servicio3.jpg'
 
 export default function HomePage() {
     const items=JSON.parse(localStorage.getItem('user-info'));
-    //const items2=JSON.parse(localStorage.getItem('cursosi-info'));
-    //const items3=JSON.parse(localStorage.getItem('curso-info'));
+    const [user,setUser]=useState([]);
+
 console.log(items.id)
     const [cursos,setCursos]=useState([]);
 
@@ -24,6 +24,17 @@ console.log(items.id)
         });
     },[]);
 
+
+    useEffect(()=>{
+        let url="http://127.0.0.1:8080/users/"+items.id
+        fetch(url)
+          .then((res)=>res.json())
+          .then((json)=>{
+            console.log(json);
+            setUser((json));
+          });
+      },[]);
+
     const historyC = useHistory();
 
         return (
@@ -32,7 +43,7 @@ console.log(items.id)
                 <header>
                     
                 </header>
-                <h1 className="main-title home-page-title text-white">Bienvenido <code>{items.first_name} {items.last_name}</code> a My Virtual Academy</h1>
+                <h1 className="main-title home-page-title text-white">Bienvenido <code>{user.first_name} {user.last_name}</code> a My Virtual Academy</h1>
                 <br/><br/>
                 <hr className='line'></hr>
                 <div>
