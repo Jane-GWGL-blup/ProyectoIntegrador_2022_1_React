@@ -18,7 +18,7 @@ export default function EditPerfilPage() {
   const items=JSON.parse(localStorage.getItem('user-info'));
   const [error, setError]=useState(null);
 
-  const [user,setUser]=useState([]);
+  //const [user,setUser]=useState([]);
 
 
   const onSubmit = async (values) => {
@@ -49,7 +49,7 @@ export default function EditPerfilPage() {
     onSubmit,
     validationSchema: validationSchema,
   })
- console.log(user.username)
+ //console.log(user.username)
   console.log(formik.errors)
 
 
@@ -68,7 +68,7 @@ export default function EditPerfilPage() {
             <form class="row g-3" onSubmit={formik.handleSubmit}>
                 <div class="col-md-6">
                 <p className='fieldValidate'>{formik.touched.email && formik.errors.email ? formik.errors.email:""}</p>
-                    <label for="inputEmail4" class="form-label">Email</label>
+                    <label for="inputEmail4" class="form-label">Correo electrónico</label>
                     <input type="email" class="form-control" id="inputEmail4" name='email'
                       value={formik.values.email}
                      onChange={formik.handleChange}
@@ -76,7 +76,7 @@ export default function EditPerfilPage() {
                 </div>
                 <div class="col-md-6">
                 <p className='fieldValidate'>{formik.touched.username && formik.errors.username ? formik.errors.username:""}</p>
-                    <label for="inputPassword4" class="form-label">Username</label>
+                    <label for="inputPassword4" class="form-label">Nombre de usuario</label>
                     <input type="text" class="form-control" id="username" name='username'
                     value={formik.values.username}
                     onChange={formik.handleChange}

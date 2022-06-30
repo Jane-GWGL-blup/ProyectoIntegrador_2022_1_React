@@ -10,9 +10,9 @@ import '../../App.css'
 
 const PASSWORD_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 const validationSchema = yup.object({
-  username: yup.string().min(3,"Ingresa tu ingresa tu username").required("¡Por favor ingresa tu username!"),
-  email: yup.string().email("Ingresa tu ingresa tu email address").required(),
-  password:yup.string().matches(PASSWORD_REGEX,"Please enter a validate password").required(),
+  username: yup.string().min(3,"Ingresa tu ingresa tu nombre de usuario").required("¡Por favor ingresa tu nombre de usuario!"),
+  email: yup.string().email("Ingresa tu ingresa tu email").required(),
+  password:yup.string().matches(PASSWORD_REGEX,"Por favor ingresa una contraseña válida").required(),
   confirmPassword: yup
   .string()
   .required("Por favor confirma tu contraseña")
@@ -38,6 +38,7 @@ export default function SignUpPage() {
        .catch((err) =>
        {if(err && err.response)
         console.log("Error: ",err.response.data);
+        err.response.data.message="Error: ¡El nombre de usuario ya está en uso!";
         setError(err.response.data.message);
         setSuccess(null);
         
@@ -76,7 +77,7 @@ export default function SignUpPage() {
                  <p>
                     <p className='fieldValidate'>{formik.touched.username && formik.errors.username ? formik.errors.username:""}</p>
                     <div>
-                        <label>Username</label><br/>
+                        <label>Nombre de Usuario</label><br/>
                         <input type="text" name="username" 
                         value={formik.values.username}
                         onChange={formik.handleChange}
@@ -144,7 +145,7 @@ export default function SignUpPage() {
             </form>
             
             <section>
-                <p ><Link to="/"><p class="text-white">Volver a la pagina principal.</p></Link></p>
+                <p ><Link to="/"><p class="text-white">Volver a la página principal.</p></Link></p>
                 <p><Link to="/login"><p class="text-white">Iniciar Sesión</p></Link></p>
             </section>
         </div>

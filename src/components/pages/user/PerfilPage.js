@@ -19,23 +19,6 @@ export default function PerfilPage(){
             });
         },[]);
 
-/*
-        async function deleteUser(){
-            let rpta = window.confirm("Desea eliminar?");
-            if(rpta.Accept){
-                let result = await fetch("http://127.0.0.1:8080/users/"+items.id,{
-                    method:'DELETE',
-                    headers:{
-                        "Content-Type":"application/json",
-                        "Accept":"application/json" 
-                    },
-                });
-                historyD.push("/");
-            }
-        }
-*/
-
-
 
     return (
         <div className="text-center fondo">
@@ -51,11 +34,11 @@ export default function PerfilPage(){
   
                 <form class="row g-3" >
                     <div class="col-md-6">
-                        <label for="inputEmail4" class="form-label">Email</label>
+                        <label for="inputEmail4" class="form-label">Correo electrónico</label>
                         <input type="email" class="form-control" id="inputEmail4" value={user.email} disabled/>
                     </div>
                     <div class="col-md-6">
-                        <label for="username" class="form-label">Username</label>
+                        <label for="username" class="form-label">Nombre de usuario</label>
                         <input type="text" class="form-control" id="usernmae" value={user.username} disabled/>
                     </div>
                     <div class="col-12">

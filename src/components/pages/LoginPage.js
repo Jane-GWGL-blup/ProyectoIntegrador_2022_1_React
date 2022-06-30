@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
@@ -9,14 +9,13 @@ import '../../App.css'
 import '../../Estilos.css'
 
 const validationSchema = yup.object({
-    username: yup.string().required(),
-    password: yup.string().required()
+    username: yup.string().required("Por favor ingresa un nombre de usuario válido"),
+    password: yup.string().required("Por favor ingresa una contraseña válida")
 })
 
 export default function SignInPage() {
 
     const [error, setError]=useState(null);
-
     const onSubmit = async (values) => {
         setError(null);
         const response = await axios
@@ -24,6 +23,7 @@ export default function SignInPage() {
         .catch((err) =>
         {if(err && err.response)
          console.log("Error: ",err.response.data);
+         err.response.data.message = "Malas credenciales";
          setError(err.response.data.message);
        });
        if (response && response.data) {
@@ -49,13 +49,13 @@ export default function SignInPage() {
         <div class="body">
             <div className="text-center m-5-auto fondo">
             <h2 class="text-white">Inicio de Sesión</h2>
-             <p className='formError'>{error ? error : ""}</p>
+             <h3 className='formError'>{error ? error: ""}</h3>
             <form class="div-form" onSubmit={formik.handleSubmit}>
                 <div>
                     <p>
                     <p className='fieldValidate'>{formik.touched.username && formik.errors.username ? formik.errors.username:""}</p>
                     <div>
-                        <label>Username</label><br/>
+                        <label>Nombre de Usuario</label><br/>
                         <input type="text" name="username" 
                         value={formik.values.email}
                         onChange={formik.handleChange}
@@ -68,14 +68,14 @@ export default function SignInPage() {
                     <p>
                     <p className='fieldValidate'>{formik.touched.password && formik.errors.password ? formik.errors.password:""}</p>
                         <div>
-                        <label>Password</label>
+                        <label>Contraseña</label>
                         <br/>
                         <input  type="password" name="password" 
                         value={formik.values.password}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         required /><br/>
-                        <Link to="/forget-password"><label className="right-label">Forget password?</label></Link>
+                        <Link to="/forget-password"><label className="right-label">¿Olvidaste tu contraseña?</label></Link>
                         </div>
                     </p>
                 </div>
@@ -87,7 +87,7 @@ export default function SignInPage() {
                 </div>
             </form>
             <section>
-                <p class="text-white">First time? <Link to="/register"><p class="text-white"><strong>Crear una cuenta</strong></p></Link></p>
+                <p class="text-white">¿Primera vez? <Link to="/register"><p class="text-white"><strong>Crear una cuenta</strong></p></Link></p>
                 <p><Link to="/"><p class="text-white"><strong>Volver</strong></p></Link>.</p>
             </section>
         </div>

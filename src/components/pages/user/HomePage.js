@@ -8,10 +8,9 @@ import servicio3 from '../../../assets/images/servicio3.jpg'
 
 export default function HomePage() {
     const items=JSON.parse(localStorage.getItem('user-info'));
-    const [user,setUser]=useState([]);
-
-console.log(items.id)
+    console.log(items.id)
     const [cursos,setCursos]=useState([]);
+    const [user,setUser]=useState([]);
 
 //Funciona
     useEffect(()=>{
@@ -43,7 +42,7 @@ console.log(items.id)
                 <header>
                     
                 </header>
-                <h1 className="main-title home-page-title text-white">Bienvenido <code>{user.first_name} {user.last_name}</code> a My Virtual Academy</h1>
+                <h1 className="main-title home-page-title text-white">Bienvenido <code>{items.first_name} {items.last_name}</code> a My Virtual Academy</h1>
                 <br/><br/>
                 <hr className='line'></hr>
                 <div>
@@ -156,20 +155,5 @@ console.log(items.id)
         
 
         }
-/*
-        async function curso_i(){
-          let result = await fetch("http://127.0.0.1:8080/users/1/cursoUser")
-
-         // .then(data => console.log(data));
-          const data = await result.json();
-          console.log(data)
-          console.log(data._embedded.cursoUsers)
-          console.log(data._embedded.cursoUsers[0].nota3)
-          console.log(data._embedded.cursoUsers[0]._links.curso.href)
-          let uri = data._embedded.cursoUsers[0]._links.curso.href;
-          let result1 = await fetch(uri)
-          const data1 = await result1.json();
-          console.log(data1.name)
-      }*/
 
 }
