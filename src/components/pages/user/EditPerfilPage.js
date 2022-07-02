@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState, useEffect} from 'react';
 import Layout from '../layout/Layout'
 import NavbarPerfil from '../Navbar/NavbarPerfil'
 import { useFormik } from 'formik';
@@ -14,14 +14,14 @@ const validationSchema = yup.object({
 })
 
 export default function EditPerfilPage() {
- 
+  
   const items=JSON.parse(localStorage.getItem('user-info'));
   const [error, setError]=useState(null);
+  const [user,setUser]=useState([]);
 
-  //const [user,setUser]=useState([]);
-
-
+  
   const onSubmit = async (values) => {
+    
     setError(null);
     console.log(values);
      const response = await axios
@@ -32,13 +32,35 @@ export default function EditPerfilPage() {
       setError(err.response.data.message);
       
     });
+   
+    const response2 = await axios
+    .get("http://localhost:8080/users/"+items.id)
+    console.log(response2)
+    const data = await response2.data;
+    //No se desea perder el id del usuario
+    data['id']=items.id
+    console.log(data)    
+    localStorage.setItem("user-info",JSON.stringify(data));
+    
+    console.log(localStorage.getItem('user-info'))
+    
+
     if (response && response.data) {
       window.location.href ="/perfil";
 
     }
+    
+    
+    
    
   };
+  
+  
+
+  
+  
   const formik = useFormik({
+    
     initialValues : {
       username:items.username,
       email:items.email,

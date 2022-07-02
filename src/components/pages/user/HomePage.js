@@ -42,7 +42,7 @@ export default function HomePage() {
                 <header>
                     
                 </header>
-                <h1 className="main-title home-page-title text-white">Bienvenido <code>{items.first_name} {items.last_name}</code> a My Virtual Academy</h1>
+                <h1 className="main-title home-page-title text-white">Bienvenido <code>{user.first_name} {user.last_name}</code> a My Virtual Academy</h1>
                 <br/><br/>
                 <hr className='line'></hr>
                 <div>
