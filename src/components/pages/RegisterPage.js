@@ -45,6 +45,7 @@ export default function SignUpPage() {
       });
       if (response && response.data) {
         setError(null);
+        response.data.message="Usuario Registrado Satisfactoriamente"
         setSuccess(response.data.message);
         formik.resetForm();
 
